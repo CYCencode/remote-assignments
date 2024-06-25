@@ -1,5 +1,8 @@
-function avg(data) {
-    // your code here
+const avg = (data) => {
+    let avgPrice = data.products
+        .reduce((total, current) => total + current.price, 0)
+        / data.products.length;
+    return avgPrice;
 }
 console.log(
     avg({
