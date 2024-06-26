@@ -1,0 +1,51 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.web-name,
+.item-1,
+.item-2,
+.item-3,
+.item-4 {
+    padding: 10px
+}
+
+.web-name {
+    margin-right: auto;
+    font-weight: bold;
+}
+
+
+@media (min-width: 1200px) {
+
+    .content-1,
+    .content-2,
+    .content-3,
+    .content-4 {
+        width: 300px;
+    }
+}
+
+.content-container {
+    text-align: center;
+}
+
+#welcome-msg,
+#botton {
+    background: #eab676;
+    padding: 1em;
+}
+
+#botton {
+    margin: 1em;
+}
+
+.content-1,
+.content-2,
+.content-3,
+.content-4 {
+    background-color: #abdbe3;
+    width: 45%;
+    height: 18vh;
+    margin: 1em;
+}

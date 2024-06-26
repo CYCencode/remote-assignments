@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Hello!HTML&CSS
+    </title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/flexbox.css">
+    <style>
+        .hidden-content-container {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-container">
+        <div class="web-name">Hello!HTML&CSS</div>
+        <div class="item-1">HTML Basics |</div>
+        <div class="item-2 item">CSS selector |</div>
+        <div class="item-3 item">CSS layout |</div>
+        <div class="item-4 item">CSS flexbox</div>
+    </div>
+    <h1 id="welcome-msg">Here are some notes on HTML and CSS.</h1>
+    <h2 id="session-title">How much can you remember?</h2>
+    <div class="content-container">
+        <div class="row-1">
+            <div class="content-1">
+                <h3>HTML Basics</h3>
+            </div>
+            <div class="content-2">
+                <h3>CSS selector</h3>
+            </div>
+        </div>
+        <div class="row-2">
+            <div class="content-3">
+                <h3>CSS layout</h3>
+            </div>
+            <div class="content-4">
+                <h3>CSS flexbox</h3>
+            </div>
+        </div>
+        <div id="botton">Show Detail</div>
+    </div>
+    <div class="hidden-content-container">
+        <div class="row-1">
+            <div class="content-1">
+                <ul>
+                    <li>head/body</li>
+                    <li>section/div</li>
+                    <li>link/img/list</li>
+                </ul>
+            </div>
+            <div class="content-2">
+                <ul>
+                    <li>Type of Selector</li>
+                    <li>CSS combinator</li>
+                    <li>data-*</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row-2">
+            <div class="content-3">
+                <ul>
+                    <li>view width(vw), view height(vh)</li>
+                    <li>display : none | block| inline</li>
+                    <li>@media query</li>
+                </ul>
+            </div>
+            <div class="content-4">
+                <ul>
+                    <li>flex-wrap</li>
+                    <li>justify-content/align-content</li>
+                    <li>flex-grow/flex-basis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
