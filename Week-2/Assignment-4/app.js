@@ -23,7 +23,7 @@ button.addEventListener('click', () => {
         hiddenContent.style.display = 'block';
         button.textContent = 'Hide Detail';
     } else {
-        hiddenContent.style.display = ''
+        hiddenContent.removeAttribute('style');
         button.textContent = 'Show Detail';
     }
     ;
