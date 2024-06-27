@@ -16,15 +16,15 @@ button, show those hidden content boxes.
 Hint: all content boxes are already there, they are just set to display: none at the beginning.
 */
 const hiddenContent = document.querySelector('.hidden-content-container');
-const botton = document.getElementById('botton');
-botton.addEventListener('click', () => {
+const button = document.getElementById('button');
+button.addEventListener('click', () => {
     // this allows the display state can be reset
     if (hiddenContent.style.display === '') {
         hiddenContent.style.display = 'block';
-        botton.textContent = 'Hide Detail';
+        button.textContent = 'Hide Detail';
     } else {
         hiddenContent.style.display = ''
-        botton.textContent = 'Show Detail';
+        button.textContent = 'Show Detail';
     }
     ;
 });
