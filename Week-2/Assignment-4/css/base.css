@@ -30,6 +30,10 @@ body {
     text-align: center;
 }
 
+.hidden-content-container {
+    display: none;
+}
+
 #welcome-msg,
 #botton {
     background: #eab676;
