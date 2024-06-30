@@ -29,12 +29,25 @@ const max = (numbers) => {
 }
 */
 
-function findPosition(numbers, target) {
-    for (let idx = 0; idx < numbers.length; idx++) {
-        if (numbers[idx] === target) {
-            return idx;
+// solution1: for version
+/* const findPosition = (numbers, target) => {
+     for (let idx = 0; idx < numbers.length; idx++) {
+         if (numbers[idx] === target) {
+             return idx;
         }
     } return -1
+}
+*/
+
+// solution2: for-of version
+const findPosition = (numbers, target) => {
+    let idx = 0;
+    for (num of numbers) {
+        if (num === target) {
+            return idx;
+        }
+        idx += 1;
+    } return -1;
 }
 
 console.log(max([1, 2, 4, 5])); // should print 5
