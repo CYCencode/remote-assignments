@@ -23,17 +23,10 @@ public class NameController {
     public String trackNamePage(@RequestParam(value = "name", required = false) String name, HttpServletResponse response){
         if(name != null && !name.isEmpty()){
             Cookie cookie = new Cookie("name", name);
-            cookie.setMaxAge(60 * 10); // set as 10 min
+            cookie.setMaxAge(10); // set as 10 sec
             response.addCookie(cookie);
             return "redirect:/myName";
         }
         return "trackName";
-    }
-    @GetMapping("/clear")
-    public String clear(HttpServletResponse response){
-        Cookie cookie = new Cookie("name",null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-        return "redirect:/myName";
     }
 }
