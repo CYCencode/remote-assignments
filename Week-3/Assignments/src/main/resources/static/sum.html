@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summation</title>
+</head>
+<body>
+<label for="inputNum">Input a number</label>
+<!--for integer byte limit, set maxlength-->
+<input type="text" id="inputNum" maxlength="5">
+<button id="submitBtn">submit</button>
+<p id="result">Summation result shows here</p>
+<script>
+    let submitBtn = document.getElementById("submitBtn");
+    submitBtn.addEventListener('click', (event)=>{
+        let inputNum = document.getElementById("inputNum").value;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState===4 && xhr.status===200){
+                document.getElementById("result").innerText = xhr.responseText;
+            }
+        }
+        xhr.open("GET",`http://localhost:3000/data?number=${inputNum}`);
+        xhr.send();
+    })
+
+</script>
+</body>
+</html>

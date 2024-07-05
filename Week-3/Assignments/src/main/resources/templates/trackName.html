@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Track Name</title>
+</head>
+<body>
+<form th:unless="${name != null}" method="get" action="/trackName">
+    <label>
+        What's your name?
+        <input name="name"/>
+    </label>
+    <button id="submitBtn">Save</button>
+</form>
+</body>
+</html>
