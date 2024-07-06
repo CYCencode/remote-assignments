@@ -6,14 +6,19 @@
 </head>
 <body>
 <label for="inputNum">Input a number</label>
-<!--for integer byte limit, set maxlength-->
-<input type="text" id="inputNum" maxlength="5">
+<!--avoid overflow, set max-->
+<!--Since long.MAX_VALUE=9223372036854775807, use summation equation, when input>3037000499, it overflows.-->
+<input type="number" id="inputNum" min="0" max="3037000499">
 <button id="submitBtn">submit</button>
 <p id="result">Summation result shows here</p>
 <script>
     let submitBtn = document.getElementById("submitBtn");
     submitBtn.addEventListener('click', (event)=>{
         let inputNum = document.getElementById("inputNum").value;
+        // since user can direct type-in and causing overflow...
+        if (inputNum>3037000499){
+            alert("This number is too large,please input a number below 3037000499")
+        }
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
             if(xhr.readyState===4 && xhr.status===200){
