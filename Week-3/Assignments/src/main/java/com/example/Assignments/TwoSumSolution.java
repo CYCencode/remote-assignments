@@ -19,3 +19,18 @@ public class TwoSumSolution {
         System.out.println("Two sum not found");
     }
 }
+
+/* JavaScript version
+const twoSum =(nums, target)=>{
+        const map = new Map();
+    for (let idx = 0; idx<nums.length; idx++){
+        const complement = target-nums[idx];
+        if(map.has(complement)){
+        return [map.get(complement), idx];
+        }
+        map.set(nums[idx], idx)
+    }
+            return "Two sum not found";
+            }
+ */
+

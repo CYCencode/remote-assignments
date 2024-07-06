@@ -5,7 +5,7 @@
     <title>Summation</title>
 </head>
 <body>
-<label for="inputNum">Input a number</label>
+<label for="inputNum">Input a number between 0-46340 </label>
 <!--avoid overflow, set max-->
 <!--Since int.MAX_VALUE=2147483647, use summation equation, when input>46340, it overflows.-->
 <input type="number" id="inputNum" min="0" max="46340">
@@ -16,8 +16,8 @@
     submitBtn.addEventListener('click', (event)=>{
         let inputNum = document.getElementById("inputNum").value;
         // since user can direct type-in and causing overflow...
-        if (inputNum>46340){
-            alert("This number is too large,please input a number below 46340")
+        if (inputNum<0 || inputNum>46340){
+            alert("Please enter a number in the valid range! (> <,)")
         }
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
