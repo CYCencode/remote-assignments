@@ -11,16 +11,19 @@ public class SumController {
         return "Hello, welcome to Evelyn's server!";
     }
     @GetMapping("/data")
-    public String getData(@RequestParam(required = false) Long number){
+    public String getData(@RequestParam(required = false) String number){
         if(number == null){
             return "Lack of Parameter";
         }
         try{
-           if(number==0){
+            int input = Integer.parseInt(number);
+            if (input<0){
+                return "Wrong Parameter";
+            }else if(input==0){
                 return "0";
             }
-            long summation = number*(number+1)/2;
-            return String.valueOf(summation);
+            int summation = input*(input+1)/2;
+            return Integer.toString(summation);
         }
         catch(NumberFormatException e){
             return "Wrong Parameter";
