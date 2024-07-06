@@ -17,7 +17,7 @@ public class SumController {
         }
         try{
             int input = Integer.parseInt(number);
-            if (input<0){
+            if (input<0 || input>46340){
                 return "Wrong Parameter";
             }else if(input==0){
                 return "0";
