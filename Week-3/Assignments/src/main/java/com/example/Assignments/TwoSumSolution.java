@@ -12,8 +12,9 @@ public class TwoSumSolution {
             int complement = target-numbers.get(idx);
             if(map.containsKey(complement)){
                 System.out.println(Arrays.asList(map.get(complement),idx));
-                break;
-            }map.put(numbers.get(idx),idx);
+                return;
+            }
+            map.put(numbers.get(idx),idx);
         }
         System.out.println("Two sum not found");
     }
