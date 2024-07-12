@@ -18,7 +18,7 @@ public class UserDao {
     JdbcTemplate jdbcTemplate;
     //是否可以改成void
     public int save(User user) {
-        String sql = "INSERT INTO User (email, password) VALUES (?,?)";
+        String sql = "INSERT INTO user (email, password) VALUES (?,?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(
@@ -35,7 +35,7 @@ public class UserDao {
     }
 
     public List<User> findByEmail(String email) {
-        String sql = "SELECT * FROM User WHERE email = ?";
+        String sql = "SELECT * FROM user WHERE email = ?";
         return jdbcTemplate.query(sql, new Object[]{email}, new RowMapper<User>() {
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
