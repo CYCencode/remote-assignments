@@ -5,4 +5,4 @@ WHERE email = "Cyc.evelynchang@gmail.com";
 
 -- Write another SQL statement to select articles from 7th to 12th sorted by id.
 SELECT* FROM assignment.article
-WHERE id IN (7,12);
+WHERE id BETWEEN 7 AND 12;
