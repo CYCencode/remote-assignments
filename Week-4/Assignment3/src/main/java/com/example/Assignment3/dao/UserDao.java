@@ -16,7 +16,6 @@ import java.util.List;
 public class UserDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    //是否可以改成void
     public int save(User user) {
         String sql = "INSERT INTO user (email, password) VALUES (?,?)";
 
