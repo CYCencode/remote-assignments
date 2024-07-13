@@ -2,20 +2,24 @@ package com.example.Assignment3.dao;
 
 import com.example.Assignment3.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
-import java.util.List;
 
 @Repository
 public class UserDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
+    /*
+    use jdbcTemplate.update(PreparedStatementCreator psc, KeyHolder generatedKeyHolder)
+    PreparedStatementCreator for more flexible and secure sql query
+     */
     public int save(User user) {
         String sql = "INSERT INTO user (email, password) VALUES (?,?)";
 
@@ -32,10 +36,15 @@ public class UserDao {
 
         return keyHolder.getKey().intValue();
     }
+    /*
+    version 1 :object list + isEmpty
+    if email is not unique value in this table,
+    mapping sql query result into a User object list
 
-    public List<User> findByEmail(String email) {
+     public List<User> findByEmail(String email) {
         String sql = "SELECT * FROM user WHERE email = ?";
         return jdbcTemplate.query(sql, new Object[]{email}, new RowMapper<User>() {
+
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                 User user = new User();
@@ -45,6 +54,23 @@ public class UserDao {
                 return user;
             }
         });
+    }
+     */
+
+    // version 2 : since our email column is a unique set, use object + try-catch syntax is more precise
+    public User findByEmail(String email) {
+        String sql = "SELECT * FROM user WHERE email = ?";
+        try{
+            return jdbcTemplate.queryForObject(sql, new Object[]{email}, new BeanPropertyRowMapper<User>(User.class));
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public void deleteByEmail(String email) {
+        String sql = "DELETE FROM user WHERE email = ?";
+        jdbcTemplate.update(sql, new Object[]{email});
     }
 
 }

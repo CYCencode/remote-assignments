@@ -2,6 +2,7 @@ package com.example.Assignment3.controller;
 
 import com.example.Assignment3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,13 @@ public class UserController {
     public String member() {
         return "member";
     }
+    @DeleteMapping("/delete")
+    @ResponseBody
+    public ResponseEntity<Void> deleteByEmail(@RequestParam String email) {
+        userService.deleteUser(email);
+        return ResponseEntity.noContent().build();
+    }
+
 }
 
 

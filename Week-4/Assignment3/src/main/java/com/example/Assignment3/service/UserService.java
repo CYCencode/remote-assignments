@@ -5,7 +5,6 @@ import com.example.Assignment3.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import java.util.List;
 
 @Service
 public class UserService {
@@ -13,8 +12,8 @@ public class UserService {
     private UserDao userDao;
     public String signUp(String email, String password, Model model) {
         // sign-up
-        List<User> user = userDao.findByEmail(email);
-        if (user.isEmpty()){
+        User user = userDao.findByEmail(email);
+        if (user == null){
             User newUser = new User();
             newUser.setEmail(email);
             newUser.setPassword(password);
@@ -27,12 +26,18 @@ public class UserService {
     }
     public String signIn(String email, String password, Model model) {
         //sign-in
-        List<User> user = userDao.findByEmail(email);
-        if(!user.isEmpty() && user.get(0).getPassword().equals(password)){
+        User user = userDao.findByEmail(email);
+        if(!(user== null) && user.getPassword().equals(password)){
             return "member";
         }else{
             model.addAttribute("error","Invalid password or email!");
             return "home";
         }
+    }
+    public void deleteUser(String email) {
+        if (!(email ==null)){
+            userDao.deleteByEmail(email);
+        }
+
     }
 }
