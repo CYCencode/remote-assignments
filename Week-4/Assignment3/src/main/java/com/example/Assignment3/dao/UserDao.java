@@ -70,7 +70,7 @@ public class UserDao {
 
     public void deleteByEmail(String email) {
         String sql = "DELETE FROM user WHERE email = ?";
-        jdbcTemplate.update(sql, new Object[]{email});
+        jdbcTemplate.update(sql, email);
     }
 
 }
