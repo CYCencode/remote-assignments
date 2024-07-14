@@ -22,18 +22,16 @@ function render(data) {
     divBlock.style.top = "50%";
     divBlock.style.left = "50%";
     divBlock.style.transform = "translate(-50%,-50%)";
-    divBlock.style.textAlign = "center";
+    divBlock.style.textAlign = "left";
     divBlock.style.padding = "2vw";
     divBlock.style.backgroundColor = "#FDEC95";
     document.body.appendChild(divBlock);
     try {
-        for (let i = 0; i < data.length; i++) {
-            let product = data[i];
+        data.forEach(product => {
             let pBlock = document.createElement('p');
             pBlock.textContent = `product : ${product.name}, price : ${product.price}, description : ${product.description}`;
             divBlock.appendChild(pBlock);
-        }
-
+        });
     }
     catch (err) {
         divBlock.style.backgroundColor = "yellow";
